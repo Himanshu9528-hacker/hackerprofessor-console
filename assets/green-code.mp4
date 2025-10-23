@@ -1,0 +1,3 @@
+<video autoplay muted loop id="baseVideo">
+  <source src="assets/videos/programmer-typing.mp4" type="video/mp4" />
+</video>

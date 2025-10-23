@@ -1,0 +1,229 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Courier New', monospace;
+  background-color: #000;
+  color: #00ff99;
+  scroll-behavior: smooth;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 10px 20px;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar .logo {
+  font-weight: bold;
+  font-size: 1.5em;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.navbar a {
+  color: #00ff99;
+  text-decoration: none;
+}
+
+.hacker-bg {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+video {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#baseVideo { z-index: 0; }
+#overlayCode { mix-blend-mode: screen; opacity: 0.4; z-index: 1; }
+#overlayGlitch { mix-blend-mode: lighten; opacity: 0.3; z-index: 2; }
+
+.tagline {
+  position: absolute;
+  top: 40%;
+  left: 10%;
+  z-index: 3;
+  color: #00ff99;
+  text-shadow: 0 0 10px #000;
+}
+
+.tagline h1 {
+  font-size: 3em;
+  margin: 0;
+}
+
+.tagline p {
+  font-size: 1.5em;
+  margin-top: 10px;
+}
+
+section {
+  padding: 80px 20px;
+  background-color: #111;
+  border-top: 1px solid #00ff99;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #000;
+  border-top: 1px solid #00ff99;
+}
+ 
+ .console-log {
+  position: relative;
+  z-index: 1;
+  margin: 2rem auto;
+  padding: 1rem;
+  max-width: 800px;
+  background: rgba(0,0,0,0.6);
+  border-radius: 8px;
+  color: #00ffcc;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0,255,204,0.3);
+}
+.console-log ul {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0 0;
+}
+.console-log li {
+  margin: 0.3rem 0;
+  font-family: monospace;
+  color: #00ffcc;
+}
+
+ .quick-launch .btn:hover {
+  background: #00ffaa;
+  transform: scale(1.05);
+}
+
+.tagline, .console-status, .mission-block, .quick-launch, .console-log {
+  animation: fadeIn 1.2s ease-in;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+ 
+ .profile-pic {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  margin-bottom: 1rem;
+}
+
+.navbar ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  overflow-x: auto;
+}
+.navbar li {
+  margin: 0.5rem;
+}
+
+.console-status, .mission-block, .quick-launch {
+  position: relative;
+  z-index: 1;
+  margin-top: 2rem;
+  padding: 1rem;
+  background: rgba(0,0,0,0.6);
+  border-radius: 8px;
+  color: #00ffcc;
+  text-align: center;
+}
+.quick-launch .btn {
+  display: inline-block;
+  margin: 0.5rem;
+  padding: 0.7rem 1.2rem;
+  background: #00ffcc;
+  color: #000;
+  font-weight: bold;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+.quick-launch .btn:hover {
+  background: #00ffaa;
+}
+
+@media (max-width: 768px) {
+  .tagline h1 {
+    font-size: 2em;
+  }
+  .tagline p {
+    font-size: 1.2em;
+  }
+  .console-status, .mission-block, .quick-launch, .console-log {
+    padding: 0.8rem;
+    margin: 1rem;
+    font-size: 0.95em;
+  }
+  .quick-launch .btn {
+    padding: 0.6rem 1rem;
+    font-size: 0.9em;
+  }
+  .menu-toggle {
+    font-size: 1.8rem;
+    top: 0.5rem;
+    right: 0.5rem;
+  }
+  .nav-menu {
+    top: 3rem;
+    right: 0.5rem;
+    width: 80%;
+  }
+}
+
+video {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.console-status, .mission-block, .quick-launch, .console-log {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+.hacker-bg {
+  min-height: 100vh;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+ 

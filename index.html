@@ -1,0 +1,1581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hacker Professor Console</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .menu-toggle {
+      font-size: 2rem;
+      background: none;
+      border: none;
+      color: white;
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      z-index: 10;
+      cursor: pointer;
+    }
+    .nav-menu {
+      display: none;
+      flex-direction: column;
+      background-color: rgba(0, 0, 0, 0.8);
+      position: absolute;
+      top: 3.5rem;
+      right: 1rem;
+      padding: 1rem;
+      border-radius: 8px;
+      z-index: 9;
+    }
+    .nav-menu.active {
+      display: flex;
+    }
+    .nav-menu ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .nav-menu li {
+      margin: 0.5rem 0;
+    }
+    .nav-menu a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .hacker-bg {
+      position: relative;
+      height: 100vh;
+      overflow: hidden;
+      color: white;
+      text-align: center;
+    }
+    .hacker-bg video {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+    .tagline {
+      position: relative;
+      z-index: 1;
+      padding-top: 20vh;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: black;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Language Switcher -->
+  <select id="languageSwitcher" onchange="switchLanguage()" style="position: absolute; top: 1rem; left: 1rem; z-index: 20;">
+    <option value="en">🌐 English</option>
+    <option value="hi">🧢 Hinglish</option>
+  <option value="fr">🇫🇷 French</option>
+  <option value="es">🇪🇸 Spanish</option>
+  <option value="de">🇩🇪 German</option>
+  <option value="ja">🇯🇵 Japanese</option>
+
+
+  </select>
+
+  <!-- Hamburger Button -->
+  <button class="menu-toggle">☰</button>
+
+  <!-- Navigation -->
+  <nav class="nav-menu" id="navMenu">
+    <ul>
+      <li><a href="tools.html">Tools</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="awareness.html">Awareness</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="information.html">Information</a></li>
+      <li><a href="about.html">About Us</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hacker Console Section -->
+  <section class="hacker-bg">
+    <video autoplay muted loop id="baseVideo">
+      <source src="https://cdn.pixabay.com/video/2025/03/05/262696_tiny.mp4" type="video/mp4" />
+    </video>
+    <video autoplay muted loop id="overlayCode">
+      <source src="https://cdn.pixabay.com/video/2022/12/10/142363-780562112_tiny.mp4" type="video/mp4" />
+    </video>
+    <video autoplay muted loop id="overlayGlitch">
+      <source src="https://cdn.pixabay.com/video/2015/08/09/171-135788231_large.mp4" type="video/mp4" />
+    </video>
+    <div class="tagline">
+      <h1 id="welcomeText">Welcome Hackers</h1>
+      <h1 id="tagline">This is Hacker Professor's Console 😎</h1>
+      <p id="subtext">Code. Awareness. Automation. Swag.</p>
+    </div>
+  </section>
+
+  <!-- Console Status -->
+  <div class="console-status">
+    <h3>🟢 Console Status: Active</h3>
+    <p>Last Scan: 23 Oct 2025 | Threats Neutralized: 7 | Modules Loaded: DNS Recon, DemoForge, Awareness Engine</p>
+  </div>
+
+  <!-- Mission Block -->
+  <div class="mission-block">
+    <h3>🎯 Mission</h3>
+    <p>Empower every learner with ethical hacking tools, cyber awareness, and yogic clarity. Code. Track. Transform.</p>
+  </div>
+
+  <!-- Quick Launch -->
+  <div class="quick-launch">
+    <a href="tools.html" class="btn">🚀 Launch Tools</a>
+    <a href="awareness.html" class="btn">🧘 Awareness Engine</a>
+    <a href="blog.html" class="btn">📖 Read Blog</a>
+  </div>
+
+  <!-- Console Logs -->
+  <div class="console-log">
+    <h3>📡 Recent Console Logs</h3>
+    <ul>
+      <li>[16:13] Awareness Engine patched with TraitMap v2.1</li>
+      <li>[16:10] DNS Recon scan completed — 42 subdomains found</li>
+      <li>[16:05] DemoForge phishing simulator deployed</li>
+    </ul>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Hacker Professor. Built with code, chai, and swag.</p>
+  </footer>
+
+  <!-- Scripts -->
+ <script>
+  const toggleBtn = document.querySelector('.menu-toggle');
+  const navMenu = document.getElementById('navMenu');
+  toggleBtn.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+  });
+
+  const content = {
+    en: {
+      welcomeText: "Welcome Hackers",
+      tagline: "This is Hacker Professor's Console 😎",
+      subtext: "Code. Awareness. Automation. Swag."
+    },
+    hi: {
+      welcomeText: "Swagat hai Hackers!",
+      tagline: "Yeh Hacker Professor ka Console hai 😎",
+      subtext: "Code. Awareness. Automation. Swag."
+    },
+    fr: {
+      welcomeText: "Bienvenue Hackers",
+      tagline: "Voici la console du Hacker Professor 😎",
+      subtext: "Code. Conscience. Automatisation. Style."
+    },
+    es: {
+      welcomeText: "Bienvenidos Hackers",
+      tagline: "Esta es la consola del Hacker Professor 😎",
+      subtext: "Código. Conciencia. Automatización. Estilo."
+    },
+    de: {
+      welcomeText: "Willkommen Hacker",
+      tagline: "Dies ist die Konsole von Hacker Professor 😎",
+      subtext: "Code. Bewusstsein. Automatisierung. Stil."
+    },
+    ja: {
+      welcomeText: "ハッカーの皆さん、ようこそ",
+      tagline: "これはハッカープロフェッサーのコンソールです 😎",
+      subtext: "コード・意識・自動化・スタイル"
+    }
+  };
+
+  function switchLanguage() {
+    const lang = document.getElementById("languageSwitcher").value;
+    if (content[lang]) {
+      document.getElementById("welcomeText").innerText = content[lang].welcomeText;
+      document.getElementById("tagline").innerText = content[lang].tagline;
+      document.getElementById("subtext").innerText = content[lang].subtext;
+    }
+  }
+
+  // Auto-detect browser language on load
+  window.onload = () => {
+    const userLang = navigator.language.slice(0, 2); // e.g., "en", "fr"
+    if (content[userLang]) {
+      document.getElementById("languageSwitcher").value = userLang;
+      switchLanguage();
+    }
+  };
+</script>
+
+ <script>
+  const toggleBtn = document.querySelector('.menu-toggle');
+  const navMenu = document.getElementById('navMenu');
+  toggleBtn.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+  });
+
+  const content = {
+    en: {
+      welcomeText: "Welcome Hackers",
+      tagline: "This is Hacker Professor's Console 😎",
+      subtext: "Code. Awareness. Automation. Swag."
+    },
+    hi: {
+      welcomeText: "Swagat hai Hackers!",
+      tagline: "Yeh Hacker Professor ka Console hai 😎",
+      subtext: "Code. Awareness. Automation. Swag."
+    },
+    fr: {
+      welcomeText: "Bienvenue Hackers",
+      tagline: "Voici la console du Hacker Professor 😎",
+      subtext: "Code. Conscience. Automatisation. Style."
+    },
+    es: {
+      welcomeText: "Bienvenidos Hackers",
+      tagline: "Esta es la consola del Hacker Professor 😎",
+      subtext: "Código. Conciencia. Automatización. Estilo."
+    },
+    de: {
+      welcomeText: "Willkommen Hacker",
+      tagline: "Dies ist die Konsole von Hacker Professor 😎",
+      subtext: "Code. Bewusstsein. Automatisierung. Stil."
+    },
+    ja: {
+      welcomeText: "ハッカーの皆さん、ようこそ",
+      tagline: "これはハッカープロフェッサーのコンソールです 😎",
+      subtext: "コード・意識・自動化・スタイル"
+    }
+  };
+
+  function switchLanguage() {
+    const lang = document.getElementById("languageSwitcher").value;
+    if (content[lang]) {
+      document.getElementById("welcomeText").innerText = content[lang].welcomeText;
+      document.getElementById("tagline").innerText = content[lang].tagline;
+      document.getElementById("subtext").innerText = content[lang].subtext;
+    }
+  }
+
+  // Auto-detect browser language on load
+  window.onload = () => {
+    const userLang = navigator.language.slice(0, 2); // e.g., "en", "fr"
+    if (content[userLang]) {
+      document.getElementById("languageSwitcher").value = userLang;
+      switchLanguage();
+    }
+  };
+</script>
+
+ <script>
+  const toggleBtn = document.querySelector('.menu-toggle');
+  const navMenu = document.getElementById('navMenu');
+  toggleBtn.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+  });
+
+  const content = {
+    en: {
+      welcomeText: "Welcome Hackers",
+      tagline: "This is Hacker Professor's Console 😎",
+      subtext: "Code. Awareness. Automation. Swag."
+    },
+    hi: {
+      welcomeText: "Swagat hai Hackers!",
+      tagline: "Yeh Hacker Professor ka Console hai 😎",
+      subtext: "Code. Awareness. Automation. Swag."
+    },
+    fr: {
+      welcomeText: "Bienvenue Hackers",
+      tagline: "Voici la console du Hacker Professor 😎",
+      subtext: "Code. Conscience. Automatisation. Style."
+    },
+    es: {
+      welcomeText: "Bienvenidos Hackers",
+      tagline: "Esta es la consola del Hacker Professor 😎",
+      subtext: "Código. Conciencia. Automatización. Estilo."
+    },
+    de: {
+      welcomeText: "Willkommen Hacker",
+      tagline: "Dies ist die Konsole von Hacker Professor 😎",
+      subtext: "Code. Bewusstsein. Automatisierung. Stil."
+    },
+    ja: {
+      welcomeText: "ハッカーの皆さん、ようこそ",
+      tagline: "これはハッカープロフェッサーのコンソールです 😎",
+      subtext: "コード・意識・自動化・スタイル"
+    }
+  };
+
+  function switchLanguage() {
+    const lang = document.getElementById("languageSwitcher").value;
+    if (content[lang]) {
+      document.getElementById("welcomeText").innerText = content[lang].welcomeText;
+      document.getElementById("tagline").innerText = content[lang].tagline;
+      document.getElementById("subtext").innerText = content[lang].subtext;
+    }
+  }
+
+  // Auto-detect browser language on load
+  window.onload = () => {
+    const userLang = navigator.language.slice(0, 2); // e.g., "en", "fr"
+    if (content[userLang]) {
+      document.getElementById("languageSwitcher").value = userLang;
+      switchLanguage();
+    }
+  };
+</script>
+
+ <script>
+  const toggleBtn = document.querySelector('.menu-toggle');
+  const navMenu = document.getElementById('navMenu');
+  toggleBtn.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+  });
+
+  const content = {
+    en: {
+      welcomeText: "Welcome Hackers",
+      tagline: "This is Hacker Professor's Console 😎",
+      subtext: "Code. Awareness. Automation. Swag."
+    },
+    hi: {
+      welcomeText: "Swagat hai Hackers!",
+      tagline: "Yeh Hacker Professor ka Console hai 😎",
+      subtext: "Code. Awareness. Automation. Swag."
+    },
+    fr: {
+      welcomeText: "Bienvenue Hackers",
+      tagline: "Voici la console du Hacker Professor 😎",
+      subtext: "Code. Conscience. Automatisation. Style."
+    },
+    es: {
+      welcomeText: "Bienvenidos Hackers",
+      tagline: "Esta es la consola del Hacker Professor 😎",
+      subtext: "Código. Conciencia. Automatización. Estilo."
+    },
+    de: {
+      welcomeText: "Willkommen Hacker",
+      tagline: "Dies ist die Konsole von Hacker Professor 😎",
+      subtext: "Code. Bewusstsein. Automatisierung. Stil."
+    },
+    ja: {
+      welcomeText: "ハッカーの皆さん、ようこそ",
+      tagline: "これはハッカープロフェッサーのコンソールです 😎",
+      subtext: "コード・意識・自動化・スタイル"
+    }
+  };
+
+  function switchLanguage() {
+    const lang = document.getElementById("languageSwitcher").value;
+    if (content[lang]) {
+      document.getElementById("welcomeText").innerText = content[lang].welcomeText;
+      document.getElementById("tagline").innerText = content[lang].tagline;
+      document.getElementById("subtext").innerText = content[lang].subtext;
+    }
+  }
+
+  // Auto-detect browser language on load
+  window.onload = () => {
+    const userLang = navigator.language.slice(0, 2); // e.g., "en", "fr"
+    if (content[userLang]) {
+      document.getElementById("languageSwitcher").value = userLang;
+      switchLanguage();
+    }
+  };
+</script>
+
+ <script>
+  const toggleBtn = document.querySelector('.menu-toggle');
+  const navMenu = document.getElementById('navMenu');
+  toggleBtn.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+  });
+
+  const content = {
+    en: {
+      welcomeText: "Welcome Hackers",
+      tagline: "This is Hacker Professor's Console 😎",
+      subtext: "Code. Awareness. Automation. Swag."
+    },
+    hi: {
+      welcomeText: "Swagat hai Hackers!",
+      tagline: "Yeh Hacker Professor ka Console hai 😎",
+      subtext: "Code. Awareness. Automation. Swag."
+    },
+    fr: {
+      welcomeText: "Bienvenue Hackers",
+      tagline: "Voici la console du Hacker Professor 😎",
+      subtext: "Code. Conscience. Automatisation. Style."
+    },
+    es: {
+      welcomeText: "Bienvenidos Hackers",
+      tagline: "Esta es la consola del Hacker Professor 😎",
+      subtext: "Código. Conciencia. Automatización. Estilo."
+    },
+    de: {
+      welcomeText: "Willkommen Hacker",
+      tagline: "Dies ist die Konsole von Hacker Professor 😎",
+      subtext: "Code. Bewusstsein. Automatisierung. Stil."
+    },
+    ja: {
+      welcomeText: "ハッカーの皆さん、ようこそ",
+      tagline: "これはハッカープロフェッサーのコンソールです 😎",
+      subtext: "コード・意識・自動化・スタイル"
+    }
+  };
+
+  function switchLanguage() {
+    const lang = document.getElementById("languageSwitcher").value;
+    if (content[lang]) {
+      document.getElementById("welcomeText").innerText = content[lang].welcomeText;
+      document.getElementById("tagline").innerText = content[lang].tagline;
+      document.getElementById("subtext").innerText = content[lang].subtext;
+    }
+  }
+
+  // Auto-detect browser language on load
+  window.onload = () => {
+    const userLang = navigator.language.slice(0, 2); // e.g., "en", "fr"
+    if (content[userLang]) {
+      document.getElementById("languageSwitcher").value = userLang;
+      switchLanguage();
+    }
+  };
+</script>
+
+ <script>
+  const toggleBtn = document.querySelector('.menu-toggle');
+  const navMenu = document.getElementById('navMenu');
+  toggleBtn.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+  });
+
+  const content = {
+    en: {
+      welcomeText: "Welcome Hackers",
+      tagline: "This is Hacker Professor's Console 😎",
+      subtext: "Code. Awareness. Automation. Swag."
+    },
+    hi: {
+      welcomeText: "Swagat hai Hackers!",
+      tagline: "Yeh Hacker Professor ka Console hai 😎",
+      subtext: "Code. Awareness. Automation. Swag."
+    },
+    fr: {
+      welcomeText: "Bienvenue Hackers",
+      tagline: "Voici la console du Hacker Professor 😎",
+      subtext: "Code. Conscience. Automatisation. Style."
+    },
+    es: {
+      welcomeText: "Bienvenidos Hackers",
+      tagline: "Esta es la consola del Hacker Professor 😎",
+      subtext: "Código. Conciencia. Automatización. Estilo."
+    },
+    de: {
+      welcomeText: "Willkommen Hacker",
+      tagline: "Dies ist die Konsole von Hacker Professor 😎",
+      subtext: "Code. Bewusstsein. Automatisierung. Stil."
+    },
+    ja: {
+      welcomeText: "ハッカーの皆さん、ようこそ",
+      tagline: "これはハッカープロフェッサーのコンソールです 😎",
+      subtext: "コード・意識・自動化・スタイル"
+    }
+  };
+
+  function switchLanguage() {
+    const lang = document.getElementById("languageSwitcher").value;
+    if (content[lang]) {
+      document.getElementById("welcomeText").innerText = content[lang].welcomeText;
+      document.getElementById("tagline").innerText = content[lang].tagline;
+      document.getElementById("subtext").innerText = content[lang].subtext;
+    }
+  }
+
+  // Auto-detect browser language on load
+  window.onload = () => {
+    const userLang = navigator.language.slice(0, 2); // e.g., "en", "fr"
+    if (content[userLang]) {
+      document.getElementById("languageSwitcher").value = userLang;
+      switchLanguage();
+    }
+  };
+</script>
+
+
+ <script>
+  const toggleBtn = document.querySelector('.menu-toggle');
+  const navMenu = document.getElementById('navMenu');
+  toggleBtn.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+  });
+
+  const content = {
+    en: {
+      welcomeText: "Welcome Hackers",
+      tagline: "This is Hacker Professor's Console 😎",
+      subtext: "Code. Awareness. Automation. Swag."
+    },
+    hi: {
+      welcomeText: "Swagat hai Hackers!",
+      tagline: "Yeh Hacker Professor ka Console hai 😎",
+      subtext: "Code. Awareness. Automation. Swag."
+    },
+    fr: {
+      welcomeText: "Bienvenue Hackers",
+      tagline: "Voici la console du Hacker Professor 😎",
+      subtext: "Code. Conscience. Automatisation. Style."
+    },
+    es: {
+      welcomeText: "Bienvenidos Hackers",
+      tagline: "Esta es la consola del Hacker Professor 😎",
+      subtext: "Código. Conciencia. Automatización. Estilo."
+    },
+    de: {
+      welcomeText: "Willkommen Hacker",
+      tagline: "Dies ist die Konsole von Hacker Professor 😎",
+      subtext: "Code. Bewusstsein. Automatisierung. Stil."
+    },
+    ja: {
+      welcomeText: "ハッカーの皆さん、ようこそ",
+      tagline: "これはハッカープロフェッサーのコンソールです 😎",
+      subtext: "コード・意識・自動化・スタイル"
+    }
+  };
+
+  function switchLanguage() {
+    const lang = document.getElementById("languageSwitcher").value;
+    if (content[lang]) {
+      document.getElementById("welcomeText").innerText = content[lang].welcomeText;
+      document.getElementById("tagline").innerText = content[lang].tagline;
+      document.getElementById("subtext").innerText = content[lang].subtext;
+    }
+  }
+
+  // Auto-detect browser language on load
+  window.onload = () => {
+    const userLang = navigator.language.slice(0, 2); // e.g., "en", "fr"
+    if (content[userLang]) {
+      document.getElementById("languageSwitcher").value = userLang;
+      switchLanguage();
+    }
+  };
+</script>
+
+ <script>
+  const toggleBtn = document.querySelector('.menu-toggle');
+  const navMenu = document.getElementById('navMenu');
+  toggleBtn.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+  });
+
+  const content = {
+    en: {
+      welcomeText: "Welcome Hackers",
+      tagline: "This is Hacker Professor's Console 😎",
+      subtext: "Code. Awareness. Automation. Swag."
+    },
+    hi: {
+      welcomeText: "Swagat hai Hackers!",
+      tagline: "Yeh Hacker Professor ka Console hai 😎",
+      subtext: "Code. Awareness. Automation. Swag."
+    },
+    fr: {
+      welcomeText: "Bienvenue Hackers",
+      tagline: "Voici la console du Hacker Professor 😎",
+      subtext: "Code. Conscience. Automatisation. Style."
+    },
+    es: {
+      welcomeText: "Bienvenidos Hackers",
+      tagline: "Esta es la consola del Hacker Professor 😎",
+      subtext: "Código. Conciencia. Automatización. Estilo."
+    },
+    de: {
+      welcomeText: "Willkommen Hacker",
+      tagline: "Dies ist die Konsole von Hacker Professor 😎",
+      subtext: "Code. Bewusstsein. Automatisierung. Stil."
+    },
+    ja: {
+      welcomeText: "ハッカーの皆さん、ようこそ",
+      tagline: "これはハッカープロフェッサーのコンソールです 😎",
+      subtext: "コード・意識・自動化・スタイル"
+    }
+  };
+
+  function switchLanguage() {
+    const lang = document.getElementById("languageSwitcher").value;
+    if (content[lang]) {
+      document.getElementById("welcomeText").innerText = content[lang].welcomeText;
+      document.getElementById("tagline").innerText = content[lang].tagline;
+      document.getElementById("subtext").innerText = content[lang].subtext;
+    }
+  }
+
+  // Auto-detect browser language on load
+  window.onload = () => {
+    const userLang = navigator.language.slice(0, 2); // e.g., "en", "fr"
+    if (content[userLang]) {
+      document.getElementById("languageSwitcher").value = userLang;
+      switchLanguage();
+    }
+  };
+</script>
+
+ <script>
+  const toggleBtn = document.querySelector('.menu-toggle');
+  const navMenu = document.getElementById('navMenu');
+  toggleBtn.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+  });
+
+  const content = {
+    en: {
+      welcomeText: "Welcome Hackers",
+      tagline: "This is Hacker Professor's Console 😎",
+      subtext: "Code. Awareness. Automation. Swag."
+    },
+    hi: {
+      welcomeText: "Swagat hai Hackers!",
+      tagline: "Yeh Hacker Professor ka Console hai 😎",
+      subtext: "Code. Awareness. Automation. Swag."
+    },
+    fr: {
+      welcomeText: "Bienvenue Hackers",
+      tagline: "Voici la console du Hacker Professor 😎",
+      subtext: "Code. Conscience. Automatisation. Style."
+    },
+    es: {
+      welcomeText: "Bienvenidos Hackers",
+      tagline: "Esta es la consola del Hacker Professor 😎",
+      subtext: "Código. Conciencia. Automatización. Estilo."
+    },
+    de: {
+      welcomeText: "Willkommen Hacker",
+      tagline: "Dies ist die Konsole von Hacker Professor 😎",
+      subtext: "Code. Bewusstsein. Automatisierung. Stil."
+    },
+    ja: {
+      welcomeText: "ハッカーの皆さん、ようこそ",
+      tagline: "これはハッカープロフェッサーのコンソールです 😎",
+      subtext: "コード・意識・自動化・スタイル"
+    }
+  };
+
+  function switchLanguage() {
+    const lang = document.getElementById("languageSwitcher").value;
+    if (content[lang]) {
+      document.getElementById("welcomeText").innerText = content[lang].welcomeText;
+      document.getElementById("tagline").innerText = content[lang].tagline;
+      document.getElementById("subtext").innerText = content[lang].subtext;
+    }
+  }
+
+  // Auto-detect browser language on load
+  window.onload = () => {
+    const userLang = navigator.language.slice(0, 2); // e.g., "en", "fr"
+    if (content[userLang]) {
+      document.getElementById("languageSwitcher").value = userLang;
+      switchLanguage();
+    }
+  };
+</script>
+
+ <script>
+  const toggleBtn = document.querySelector('.menu-toggle');
+  const navMenu = document.getElementById('navMenu');
+  toggleBtn.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+  });
+
+  const content = {
+    en: {
+      welcomeText: "Welcome Hackers",
+      tagline: "This is Hacker Professor's Console 😎",
+      subtext: "Code. Awareness. Automation. Swag."
+    },
+    hi: {
+      welcomeText: "Swagat hai Hackers!",
+      tagline: "Yeh Hacker Professor ka Console hai 😎",
+      subtext: "Code. Awareness. Automation. Swag."
+    },
+    fr: {
+      welcomeText: "Bienvenue Hackers",
+      tagline: "Voici la console du Hacker Professor 😎",
+      subtext: "Code. Conscience. Automatisation. Style."
+    },
+    es: {
+      welcomeText: "Bienvenidos Hackers",
+      tagline: "Esta es la consola del Hacker Professor 😎",
+      subtext: "Código. Conciencia. Automatización. Estilo."
+    },
+    de: {
+      welcomeText: "Willkommen Hacker",
+      tagline: "Dies ist die Konsole von Hacker Professor 😎",
+      subtext: "Code. Bewusstsein. Automatisierung. Stil."
+    },
+    ja: {
+      welcomeText: "ハッカーの皆さん、ようこそ",
+      tagline: "これはハッカープロフェッサーのコンソールです 😎",
+      subtext: "コード・意識・自動化・スタイル"
+    }
+  };
+
+  function switchLanguage() {
+    const lang = document.getElementById("languageSwitcher").value;
+    if (content[lang]) {
+      document.getElementById("welcomeText").innerText = content[lang].welcomeText;
+      document.getElementById("tagline").innerText = content[lang].tagline;
+      document.getElementById("subtext").innerText = content[lang].subtext;
+    }
+  }
+
+  // Auto-detect browser language on load
+  window.onload = () => {
+    const userLang = navigator.language.slice(0, 2); // e.g., "en", "fr"
+    if (content[userLang]) {
+      document.getElementById("languageSwitcher").value = userLang;
+      switchLanguage();
+    }
+  };
+</script>
+
+ <script>
+  const toggleBtn = document.querySelector('.menu-toggle');
+  const navMenu = document.getElementById('navMenu');
+  toggleBtn.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+  });
+
+  const content = {
+    en: {
+      welcomeText: "Welcome Hackers",
+      tagline: "This is Hacker Professor's Console 😎",
+      subtext: "Code. Awareness. Automation. Swag."
+    },
+    hi: {
+      welcomeText: "Swagat hai Hackers!",
+      tagline: "Yeh Hacker Professor ka Console hai 😎",
+      subtext: "Code. Awareness. Automation. Swag."
+    },
+    fr: {
+      welcomeText: "Bienvenue Hackers",
+      tagline: "Voici la console du Hacker Professor 😎",
+      subtext: "Code. Conscience. Automatisation. Style."
+    },
+    es: {
+      welcomeText: "Bienvenidos Hackers",
+      tagline: "Esta es la consola del Hacker Professor 😎",
+      subtext: "Código. Conciencia. Automatización. Estilo."
+    },
+    de: {
+      welcomeText: "Willkommen Hacker",
+      tagline: "Dies ist die Konsole von Hacker Professor 😎",
+      subtext: "Code. Bewusstsein. Automatisierung. Stil."
+    },
+    ja: {
+      welcomeText: "ハッカーの皆さん、ようこそ",
+      tagline: "これはハッカープロフェッサーのコンソールです 😎",
+      subtext: "コード・意識・自動化・スタイル"
+    }
+  };
+
+  function switchLanguage() {
+    const lang = document.getElementById("languageSwitcher").value;
+    if (content[lang]) {
+      document.getElementById("welcomeText").innerText = content[lang].welcomeText;
+      document.getElementById("tagline").innerText = content[lang].tagline;
+      document.getElementById("subtext").innerText = content[lang].subtext;
+    }
+  }
+
+  // Auto-detect browser language on load
+  window.onload = () => {
+    const userLang = navigator.language.slice(0, 2); // e.g., "en", "fr"
+    if (content[userLang]) {
+      document.getElementById("languageSwitcher").value = userLang;
+      switchLanguage();
+    }
+  };
+</script>
+
+ <script>
+  const toggleBtn = document.querySelector('.menu-toggle');
+  const navMenu = document.getElementById('navMenu');
+  toggleBtn.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+  });
+
+  const content = {
+    en: {
+      welcomeText: "Welcome Hackers",
+      tagline: "This is Hacker Professor's Console 😎",
+      subtext: "Code. Awareness. Automation. Swag."
+    },
+    hi: {
+      welcomeText: "Swagat hai Hackers!",
+      tagline: "Yeh Hacker Professor ka Console hai 😎",
+      subtext: "Code. Awareness. Automation. Swag."
+    },
+    fr: {
+      welcomeText: "Bienvenue Hackers",
+      tagline: "Voici la console du Hacker Professor 😎",
+      subtext: "Code. Conscience. Automatisation. Style."
+    },
+    es: {
+      welcomeText: "Bienvenidos Hackers",
+      tagline: "Esta es la consola del Hacker Professor 😎",
+      subtext: "Código. Conciencia. Automatización. Estilo."
+    },
+    de: {
+      welcomeText: "Willkommen Hacker",
+      tagline: "Dies ist die Konsole von Hacker Professor 😎",
+      subtext: "Code. Bewusstsein. Automatisierung. Stil."
+    },
+    ja: {
+      welcomeText: "ハッカーの皆さん、ようこそ",
+      tagline: "これはハッカープロフェッサーのコンソールです 😎",
+      subtext: "コード・意識・自動化・スタイル"
+    }
+  };
+
+  function switchLanguage() {
+    const lang = document.getElementById("languageSwitcher").value;
+    if (content[lang]) {
+      document.getElementById("welcomeText").innerText = content[lang].welcomeText;
+      document.getElementById("tagline").innerText = content[lang].tagline;
+      document.getElementById("subtext").innerText = content[lang].subtext;
+    }
+  }
+
+  // Auto-detect browser language on load
+  window.onload = () => {
+    const userLang = navigator.language.slice(0, 2); // e.g., "en", "fr"
+    if (content[userLang]) {
+      document.getElementById("languageSwitcher").value = userLang;
+      switchLanguage();
+    }
+  };
+</script>
+
+ <script>
+  const toggleBtn = document.querySelector('.menu-toggle');
+  const navMenu = document.getElementById('navMenu');
+  toggleBtn.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+  });
+
+  const content = {
+    en: {
+      welcomeText: "Welcome Hackers",
+      tagline: "This is Hacker Professor's Console 😎",
+      subtext: "Code. Awareness. Automation. Swag."
+    },
+    hi: {
+      welcomeText: "Swagat hai Hackers!",
+      tagline: "Yeh Hacker Professor ka Console hai 😎",
+      subtext: "Code. Awareness. Automation. Swag."
+    },
+    fr: {
+      welcomeText: "Bienvenue Hackers",
+      tagline: "Voici la console du Hacker Professor 😎",
+      subtext: "Code. Conscience. Automatisation. Style."
+    },
+    es: {
+      welcomeText: "Bienvenidos Hackers",
+      tagline: "Esta es la consola del Hacker Professor 😎",
+      subtext: "Código. Conciencia. Automatización. Estilo."
+    },
+    de: {
+      welcomeText: "Willkommen Hacker",
+      tagline: "Dies ist die Konsole von Hacker Professor 😎",
+      subtext: "Code. Bewusstsein. Automatisierung. Stil."
+    },
+    ja: {
+      welcomeText: "ハッカーの皆さん、ようこそ",
+      tagline: "これはハッカープロフェッサーのコンソールです 😎",
+      subtext: "コード・意識・自動化・スタイル"
+    }
+  };
+
+  function switchLanguage() {
+    const lang = document.getElementById("languageSwitcher").value;
+    if (content[lang]) {
+      document.getElementById("welcomeText").innerText = content[lang].welcomeText;
+      document.getElementById("tagline").innerText = content[lang].tagline;
+      document.getElementById("subtext").innerText = content[lang].subtext;
+    }
+  }
+
+  // Auto-detect browser language on load
+  window.onload = () => {
+    const userLang = navigator.language.slice(0, 2); // e.g., "en", "fr"
+    if (content[userLang]) {
+      document.getElementById("languageSwitcher").value = userLang;
+      switchLanguage();
+    }
+  };
+</script>
+
+ <script>
+  const toggleBtn = document.querySelector('.menu-toggle');
+  const navMenu = document.getElementById('navMenu');
+  toggleBtn.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+  });
+
+  const content = {
+    en: {
+      welcomeText: "Welcome Hackers",
+      tagline: "This is Hacker Professor's Console 😎",
+      subtext: "Code. Awareness. Automation. Swag."
+    },
+    hi: {
+      welcomeText: "Swagat hai Hackers!",
+      tagline: "Yeh Hacker Professor ka Console hai 😎",
+      subtext: "Code. Awareness. Automation. Swag."
+    },
+    fr: {
+      welcomeText: "Bienvenue Hackers",
+      tagline: "Voici la console du Hacker Professor 😎",
+      subtext: "Code. Conscience. Automatisation. Style."
+    },
+    es: {
+      welcomeText: "Bienvenidos Hackers",
+      tagline: "Esta es la consola del Hacker Professor 😎",
+      subtext: "Código. Conciencia. Automatización. Estilo."
+    },
+    de: {
+      welcomeText: "Willkommen Hacker",
+      tagline: "Dies ist die Konsole von Hacker Professor 😎",
+      subtext: "Code. Bewusstsein. Automatisierung. Stil."
+    },
+    ja: {
+      welcomeText: "ハッカーの皆さん、ようこそ",
+      tagline: "これはハッカープロフェッサーのコンソールです 😎",
+      subtext: "コード・意識・自動化・スタイル"
+    }
+  };
+
+  function switchLanguage() {
+    const lang = document.getElementById("languageSwitcher").value;
+    if (content[lang]) {
+      document.getElementById("welcomeText").innerText = content[lang].welcomeText;
+      document.getElementById("tagline").innerText = content[lang].tagline;
+      document.getElementById("subtext").innerText = content[lang].subtext;
+    }
+  }
+
+  // Auto-detect browser language on load
+  window.onload = () => {
+    const userLang = navigator.language.slice(0, 2); // e.g., "en", "fr"
+    if (content[userLang]) {
+      document.getElementById("languageSwitcher").value = userLang;
+      switchLanguage();
+    }
+  };
+</script>
+
+ <script>
+  const toggleBtn = document.querySelector('.menu-toggle');
+  const navMenu = document.getElementById('navMenu');
+  toggleBtn.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+  });
+
+  const content = {
+    en: {
+      welcomeText: "Welcome Hackers",
+      tagline: "This is Hacker Professor's Console 😎",
+      subtext: "Code. Awareness. Automation. Swag."
+    },
+    hi: {
+      welcomeText: "Swagat hai Hackers!",
+      tagline: "Yeh Hacker Professor ka Console hai 😎",
+      subtext: "Code. Awareness. Automation. Swag."
+    },
+    fr: {
+      welcomeText: "Bienvenue Hackers",
+      tagline: "Voici la console du Hacker Professor 😎",
+      subtext: "Code. Conscience. Automatisation. Style."
+    },
+    es: {
+      welcomeText: "Bienvenidos Hackers",
+      tagline: "Esta es la consola del Hacker Professor 😎",
+      subtext: "Código. Conciencia. Automatización. Estilo."
+    },
+    de: {
+      welcomeText: "Willkommen Hacker",
+      tagline: "Dies ist die Konsole von Hacker Professor 😎",
+      subtext: "Code. Bewusstsein. Automatisierung. Stil."
+    },
+    ja: {
+      welcomeText: "ハッカーの皆さん、ようこそ",
+      tagline: "これはハッカープロフェッサーのコンソールです 😎",
+      subtext: "コード・意識・自動化・スタイル"
+    }
+  };
+
+  function switchLanguage() {
+    const lang = document.getElementById("languageSwitcher").value;
+    if (content[lang]) {
+      document.getElementById("welcomeText").innerText = content[lang].welcomeText;
+      document.getElementById("tagline").innerText = content[lang].tagline;
+      document.getElementById("subtext").innerText = content[lang].subtext;
+    }
+  }
+
+  // Auto-detect browser language on load
+  window.onload = () => {
+    const userLang = navigator.language.slice(0, 2); // e.g., "en", "fr"
+    if (content[userLang]) {
+      document.getElementById("languageSwitcher").value = userLang;
+      switchLanguage();
+    }
+  };
+</script>
+
+ <script>
+  const toggleBtn = document.querySelector('.menu-toggle');
+  const navMenu = document.getElementById('navMenu');
+  toggleBtn.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+  });
+
+  const content = {
+    en: {
+      welcomeText: "Welcome Hackers",
+      tagline: "This is Hacker Professor's Console 😎",
+      subtext: "Code. Awareness. Automation. Swag."
+    },
+    hi: {
+      welcomeText: "Swagat hai Hackers!",
+      tagline: "Yeh Hacker Professor ka Console hai 😎",
+      subtext: "Code. Awareness. Automation. Swag."
+    },
+    fr: {
+      welcomeText: "Bienvenue Hackers",
+      tagline: "Voici la console du Hacker Professor 😎",
+      subtext: "Code. Conscience. Automatisation. Style."
+    },
+    es: {
+      welcomeText: "Bienvenidos Hackers",
+      tagline: "Esta es la consola del Hacker Professor 😎",
+      subtext: "Código. Conciencia. Automatización. Estilo."
+    },
+    de: {
+      welcomeText: "Willkommen Hacker",
+      tagline: "Dies ist die Konsole von Hacker Professor 😎",
+      subtext: "Code. Bewusstsein. Automatisierung. Stil."
+    },
+    ja: {
+      welcomeText: "ハッカーの皆さん、ようこそ",
+      tagline: "これはハッカープロフェッサーのコンソールです 😎",
+      subtext: "コード・意識・自動化・スタイル"
+    }
+  };
+
+  function switchLanguage() {
+    const lang = document.getElementById("languageSwitcher").value;
+    if (content[lang]) {
+      document.getElementById("welcomeText").innerText = content[lang].welcomeText;
+      document.getElementById("tagline").innerText = content[lang].tagline;
+      document.getElementById("subtext").innerText = content[lang].subtext;
+    }
+  }
+
+  // Auto-detect browser language on load
+  window.onload = () => {
+    const userLang = navigator.language.slice(0, 2); // e.g., "en", "fr"
+    if (content[userLang]) {
+      document.getElementById("languageSwitcher").value = userLang;
+      switchLanguage();
+    }
+  };
+</script>
+
+ <script>
+  const toggleBtn = document.querySelector('.menu-toggle');
+  const navMenu = document.getElementById('navMenu');
+  toggleBtn.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+  });
+
+  const content = {
+    en: {
+      welcomeText: "Welcome Hackers",
+      tagline: "This is Hacker Professor's Console 😎",
+      subtext: "Code. Awareness. Automation. Swag."
+    },
+    hi: {
+      welcomeText: "Swagat hai Hackers!",
+      tagline: "Yeh Hacker Professor ka Console hai 😎",
+      subtext: "Code. Awareness. Automation. Swag."
+    },
+    fr: {
+      welcomeText: "Bienvenue Hackers",
+      tagline: "Voici la console du Hacker Professor 😎",
+      subtext: "Code. Conscience. Automatisation. Style."
+    },
+    es: {
+      welcomeText: "Bienvenidos Hackers",
+      tagline: "Esta es la consola del Hacker Professor 😎",
+      subtext: "Código. Conciencia. Automatización. Estilo."
+    },
+    de: {
+      welcomeText: "Willkommen Hacker",
+      tagline: "Dies ist die Konsole von Hacker Professor 😎",
+      subtext: "Code. Bewusstsein. Automatisierung. Stil."
+    },
+    ja: {
+      welcomeText: "ハッカーの皆さん、ようこそ",
+      tagline: "これはハッカープロフェッサーのコンソールです 😎",
+      subtext: "コード・意識・自動化・スタイル"
+    }
+  };
+
+  function switchLanguage() {
+    const lang = document.getElementById("languageSwitcher").value;
+    if (content[lang]) {
+      document.getElementById("welcomeText").innerText = content[lang].welcomeText;
+      document.getElementById("tagline").innerText = content[lang].tagline;
+      document.getElementById("subtext").innerText = content[lang].subtext;
+    }
+  }
+
+  // Auto-detect browser language on load
+  window.onload = () => {
+    const userLang = navigator.language.slice(0, 2); // e.g., "en", "fr"
+    if (content[userLang]) {
+      document.getElementById("languageSwitcher").value = userLang;
+      switchLanguage();
+    }
+  };
+</script>
+
+ <script>
+  const toggleBtn = document.querySelector('.menu-toggle');
+  const navMenu = document.getElementById('navMenu');
+  toggleBtn.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+  });
+
+  const content = {
+    en: {
+      welcomeText: "Welcome Hackers",
+      tagline: "This is Hacker Professor's Console 😎",
+      subtext: "Code. Awareness. Automation. Swag."
+    },
+    hi: {
+      welcomeText: "Swagat hai Hackers!",
+      tagline: "Yeh Hacker Professor ka Console hai 😎",
+      subtext: "Code. Awareness. Automation. Swag."
+    },
+    fr: {
+      welcomeText: "Bienvenue Hackers",
+      tagline: "Voici la console du Hacker Professor 😎",
+      subtext: "Code. Conscience. Automatisation. Style."
+    },
+    es: {
+      welcomeText: "Bienvenidos Hackers",
+      tagline: "Esta es la consola del Hacker Professor 😎",
+      subtext: "Código. Conciencia. Automatización. Estilo."
+    },
+    de: {
+      welcomeText: "Willkommen Hacker",
+      tagline: "Dies ist die Konsole von Hacker Professor 😎",
+      subtext: "Code. Bewusstsein. Automatisierung. Stil."
+    },
+    ja: {
+      welcomeText: "ハッカーの皆さん、ようこそ",
+      tagline: "これはハッカープロフェッサーのコンソールです 😎",
+      subtext: "コード・意識・自動化・スタイル"
+    }
+  };
+
+  function switchLanguage() {
+    const lang = document.getElementById("languageSwitcher").value;
+    if (content[lang]) {
+      document.getElementById("welcomeText").innerText = content[lang].welcomeText;
+      document.getElementById("tagline").innerText = content[lang].tagline;
+      document.getElementById("subtext").innerText = content[lang].subtext;
+    }
+  }
+
+  // Auto-detect browser language on load
+  window.onload = () => {
+    const userLang = navigator.language.slice(0, 2); // e.g., "en", "fr"
+    if (content[userLang]) {
+      document.getElementById("languageSwitcher").value = userLang;
+      switchLanguage();
+    }
+  };
+</script>
+
+
+ <script>
+  const toggleBtn = document.querySelector('.menu-toggle');
+  const navMenu = document.getElementById('navMenu');
+  toggleBtn.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+  });
+
+  const content = {
+    en: {
+      welcomeText: "Welcome Hackers",
+      tagline: "This is Hacker Professor's Console 😎",
+      subtext: "Code. Awareness. Automation. Swag."
+    },
+    hi: {
+      welcomeText: "Swagat hai Hackers!",
+      tagline: "Yeh Hacker Professor ka Console hai 😎",
+      subtext: "Code. Awareness. Automation. Swag."
+    },
+    fr: {
+      welcomeText: "Bienvenue Hackers",
+      tagline: "Voici la console du Hacker Professor 😎",
+      subtext: "Code. Conscience. Automatisation. Style."
+    },
+    es: {
+      welcomeText: "Bienvenidos Hackers",
+      tagline: "Esta es la consola del Hacker Professor 😎",
+      subtext: "Código. Conciencia. Automatización. Estilo."
+    },
+    de: {
+      welcomeText: "Willkommen Hacker",
+      tagline: "Dies ist die Konsole von Hacker Professor 😎",
+      subtext: "Code. Bewusstsein. Automatisierung. Stil."
+    },
+    ja: {
+      welcomeText: "ハッカーの皆さん、ようこそ",
+      tagline: "これはハッカープロフェッサーのコンソールです 😎",
+      subtext: "コード・意識・自動化・スタイル"
+    }
+  };
+
+  function switchLanguage() {
+    const lang = document.getElementById("languageSwitcher").value;
+    if (content[lang]) {
+      document.getElementById("welcomeText").innerText = content[lang].welcomeText;
+      document.getElementById("tagline").innerText = content[lang].tagline;
+      document.getElementById("subtext").innerText = content[lang].subtext;
+    }
+  }
+
+  // Auto-detect browser language on load
+  window.onload = () => {
+    const userLang = navigator.language.slice(0, 2); // e.g., "en", "fr"
+    if (content[userLang]) {
+      document.getElementById("languageSwitcher").value = userLang;
+      switchLanguage();
+    }
+  };
+</script>
+
+ <script>
+  const toggleBtn = document.querySelector('.menu-toggle');
+  const navMenu = document.getElementById('navMenu');
+  toggleBtn.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+  });
+
+  const content = {
+    en: {
+      welcomeText: "Welcome Hackers",
+      tagline: "This is Hacker Professor's Console 😎",
+      subtext: "Code. Awareness. Automation. Swag."
+    },
+    hi: {
+      welcomeText: "Swagat hai Hackers!",
+      tagline: "Yeh Hacker Professor ka Console hai 😎",
+      subtext: "Code. Awareness. Automation. Swag."
+    },
+    fr: {
+      welcomeText: "Bienvenue Hackers",
+      tagline: "Voici la console du Hacker Professor 😎",
+      subtext: "Code. Conscience. Automatisation. Style."
+    },
+    es: {
+      welcomeText: "Bienvenidos Hackers",
+      tagline: "Esta es la consola del Hacker Professor 😎",
+      subtext: "Código. Conciencia. Automatización. Estilo."
+    },
+    de: {
+      welcomeText: "Willkommen Hacker",
+      tagline: "Dies ist die Konsole von Hacker Professor 😎",
+      subtext: "Code. Bewusstsein. Automatisierung. Stil."
+    },
+    ja: {
+      welcomeText: "ハッカーの皆さん、ようこそ",
+      tagline: "これはハッカープロフェッサーのコンソールです 😎",
+      subtext: "コード・意識・自動化・スタイル"
+    }
+  };
+
+  function switchLanguage() {
+    const lang = document.getElementById("languageSwitcher").value;
+    if (content[lang]) {
+      document.getElementById("welcomeText").innerText = content[lang].welcomeText;
+      document.getElementById("tagline").innerText = content[lang].tagline;
+      document.getElementById("subtext").innerText = content[lang].subtext;
+    }
+  }
+
+  // Auto-detect browser language on load
+  window.onload = () => {
+    const userLang = navigator.language.slice(0, 2); // e.g., "en", "fr"
+    if (content[userLang]) {
+      document.getElementById("languageSwitcher").value = userLang;
+      switchLanguage();
+    }
+  };
+</script>
+
+ <script>
+  const toggleBtn = document.querySelector('.menu-toggle');
+  const navMenu = document.getElementById('navMenu');
+  toggleBtn.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+  });
+
+  const content = {
+    en: {
+      welcomeText: "Welcome Hackers",
+      tagline: "This is Hacker Professor's Console 😎",
+      subtext: "Code. Awareness. Automation. Swag."
+    },
+    hi: {
+      welcomeText: "Swagat hai Hackers!",
+      tagline: "Yeh Hacker Professor ka Console hai 😎",
+      subtext: "Code. Awareness. Automation. Swag."
+    },
+    fr: {
+      welcomeText: "Bienvenue Hackers",
+      tagline: "Voici la console du Hacker Professor 😎",
+      subtext: "Code. Conscience. Automatisation. Style."
+    },
+    es: {
+      welcomeText: "Bienvenidos Hackers",
+      tagline: "Esta es la consola del Hacker Professor 😎",
+      subtext: "Código. Conciencia. Automatización. Estilo."
+    },
+    de: {
+      welcomeText: "Willkommen Hacker",
+      tagline: "Dies ist die Konsole von Hacker Professor 😎",
+      subtext: "Code. Bewusstsein. Automatisierung. Stil."
+    },
+    ja: {
+      welcomeText: "ハッカーの皆さん、ようこそ",
+      tagline: "これはハッカープロフェッサーのコンソールです 😎",
+      subtext: "コード・意識・自動化・スタイル"
+    }
+  };
+
+  function switchLanguage() {
+    const lang = document.getElementById("languageSwitcher").value;
+    if (content[lang]) {
+      document.getElementById("welcomeText").innerText = content[lang].welcomeText;
+      document.getElementById("tagline").innerText = content[lang].tagline;
+      document.getElementById("subtext").innerText = content[lang].subtext;
+    }
+  }
+
+  // Auto-detect browser language on load
+  window.onload = () => {
+    const userLang = navigator.language.slice(0, 2); // e.g., "en", "fr"
+    if (content[userLang]) {
+      document.getElementById("languageSwitcher").value = userLang;
+      switchLanguage();
+    }
+  };
+</script>
+
+ <script>
+  const toggleBtn = document.querySelector('.menu-toggle');
+  const navMenu = document.getElementById('navMenu');
+  toggleBtn.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+  });
+
+  const content = {
+    en: {
+      welcomeText: "Welcome Hackers",
+      tagline: "This is Hacker Professor's Console 😎",
+      subtext: "Code. Awareness. Automation. Swag."
+    },
+    hi: {
+      welcomeText: "Swagat hai Hackers!",
+      tagline: "Yeh Hacker Professor ka Console hai 😎",
+      subtext: "Code. Awareness. Automation. Swag."
+    },
+    fr: {
+      welcomeText: "Bienvenue Hackers",
+      tagline: "Voici la console du Hacker Professor 😎",
+      subtext: "Code. Conscience. Automatisation. Style."
+    },
+    es: {
+      welcomeText: "Bienvenidos Hackers",
+      tagline: "Esta es la consola del Hacker Professor 😎",
+      subtext: "Código. Conciencia. Automatización. Estilo."
+    },
+    de: {
+      welcomeText: "Willkommen Hacker",
+      tagline: "Dies ist die Konsole von Hacker Professor 😎",
+      subtext: "Code. Bewusstsein. Automatisierung. Stil."
+    },
+    ja: {
+      welcomeText: "ハッカーの皆さん、ようこそ",
+      tagline: "これはハッカープロフェッサーのコンソールです 😎",
+      subtext: "コード・意識・自動化・スタイル"
+    }
+  };
+
+  function switchLanguage() {
+    const lang = document.getElementById("languageSwitcher").value;
+    if (content[lang]) {
+      document.getElementById("welcomeText").innerText = content[lang].welcomeText;
+      document.getElementById("tagline").innerText = content[lang].tagline;
+      document.getElementById("subtext").innerText = content[lang].subtext;
+    }
+  }
+
+  // Auto-detect browser language on load
+  window.onload = () => {
+    const userLang = navigator.language.slice(0, 2); // e.g., "en", "fr"
+    if (content[userLang]) {
+      document.getElementById("languageSwitcher").value = userLang;
+      switchLanguage();
+    }
+  };
+</script>
+
+ <script>
+  const toggleBtn = document.querySelector('.menu-toggle');
+  const navMenu = document.getElementById('navMenu');
+  toggleBtn.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+  });
+
+  const content = {
+    en: {
+      welcomeText: "Welcome Hackers",
+      tagline: "This is Hacker Professor's Console 😎",
+      subtext: "Code. Awareness. Automation. Swag."
+    },
+    hi: {
+      welcomeText: "Swagat hai Hackers!",
+      tagline: "Yeh Hacker Professor ka Console hai 😎",
+      subtext: "Code. Awareness. Automation. Swag."
+    },
+    fr: {
+      welcomeText: "Bienvenue Hackers",
+      tagline: "Voici la console du Hacker Professor 😎",
+      subtext: "Code. Conscience. Automatisation. Style."
+    },
+    es: {
+      welcomeText: "Bienvenidos Hackers",
+      tagline: "Esta es la consola del Hacker Professor 😎",
+      subtext: "Código. Conciencia. Automatización. Estilo."
+    },
+    de: {
+      welcomeText: "Willkommen Hacker",
+      tagline: "Dies ist die Konsole von Hacker Professor 😎",
+      subtext: "Code. Bewusstsein. Automatisierung. Stil."
+    },
+    ja: {
+      welcomeText: "ハッカーの皆さん、ようこそ",
+      tagline: "これはハッカープロフェッサーのコンソールです 😎",
+      subtext: "コード・意識・自動化・スタイル"
+    }
+  };
+
+  function switchLanguage() {
+    const lang = document.getElementById("languageSwitcher").value;
+    if (content[lang]) {
+      document.getElementById("welcomeText").innerText = content[lang].welcomeText;
+      document.getElementById("tagline").innerText = content[lang].tagline;
+      document.getElementById("subtext").innerText = content[lang].subtext;
+    }
+  }
+
+  // Auto-detect browser language on load
+  window.onload = () => {
+    const userLang = navigator.language.slice(0, 2); // e.g., "en", "fr"
+    if (content[userLang]) {
+      document.getElementById("languageSwitcher").value = userLang;
+      switchLanguage();
+    }
+  };
+</script>
+
+ <script>
+  const toggleBtn = document.querySelector('.menu-toggle');
+  const navMenu = document.getElementById('navMenu');
+  toggleBtn.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+  });
+
+  const content = {
+    en: {
+      welcomeText: "Welcome Hackers",
+      tagline: "This is Hacker Professor's Console 😎",
+      subtext: "Code. Awareness. Automation. Swag."
+    },
+    hi: {
+      welcomeText: "Swagat hai Hackers!",
+      tagline: "Yeh Hacker Professor ka Console hai 😎",
+      subtext: "Code. Awareness. Automation. Swag."
+    },
+    fr: {
+      welcomeText: "Bienvenue Hackers",
+      tagline: "Voici la console du Hacker Professor 😎",
+      subtext: "Code. Conscience. Automatisation. Style."
+    },
+    es: {
+      welcomeText: "Bienvenidos Hackers",
+      tagline: "Esta es la consola del Hacker Professor 😎",
+      subtext: "Código. Conciencia. Automatización. Estilo."
+    },
+    de: {
+      welcomeText: "Willkommen Hacker",
+      tagline: "Dies ist die Konsole von Hacker Professor 😎",
+      subtext: "Code. Bewusstsein. Automatisierung. Stil."
+    },
+    ja: {
+      welcomeText: "ハッカーの皆さん、ようこそ",
+      tagline: "これはハッカープロフェッサーのコンソールです 😎",
+      subtext: "コード・意識・自動化・スタイル"
+    }
+  };
+
+  function switchLanguage() {
+    const lang = document.getElementById("languageSwitcher").value;
+    if (content[lang]) {
+      document.getElementById("welcomeText").innerText = content[lang].welcomeText;
+      document.getElementById("tagline").innerText = content[lang].tagline;
+      document.getElementById("subtext").innerText = content[lang].subtext;
+    }
+  }
+
+  // Auto-detect browser language on load
+  window.onload = () => {
+    const userLang = navigator.language.slice(0, 2); // e.g., "en", "fr"
+    if (content[userLang]) {
+      document.getElementById("languageSwitcher").value = userLang;
+      switchLanguage();
+    }
+  };
+</script>
+
+  </script>
+
+</body>
+</html>

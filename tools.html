@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tools | Hacker Professor Console</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <style>
+    .tool-section {
+      padding: 2rem;
+      background-color: #111;
+      color: #00ff99;
+      text-align: center;
+    }
+    .tool-card {
+      background: rgba(0,0,0,0.6);
+      border: 1px solid #00ff99;
+      border-radius: 8px;
+      padding: 1rem;
+      margin: 1rem auto;
+      max-width: 600px;
+      box-shadow: 0 0 10px rgba(0,255,153,0.3);
+    }
+    .tool-card h3 {
+      margin-bottom: 0.5rem;
+    }
+    .tool-card button {
+      background: #00ff99;
+      color: #000;
+      border: none;
+      padding: 0.6rem 1rem;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .tool-card button:hover {
+      background: #00ffaa;
+    }
+    .output-box {
+      margin-top: 1rem;
+      background: #000;
+      color: #00ff99;
+      padding: 1rem;
+      border: 1px dashed #00ff99;
+      font-family: monospace;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <section class="tool-section">
+    <h1>🧰 Hacker Tools</h1>
+
+    <!-- DNS Recon Tool -->
+    <div class="tool-card">
+      <h3>🔍 DNS Recon</h3>
+      <p>Scan domain for subdomains and DNS records.</p>
+      <button onclick="runDNSRecon()">Run Scan</button>
+      <div id="dnsOutput" class="output-box"></div>
+    </div>
+
+    <!-- DemoForge Simulator -->
+    <div class="tool-card">
+      <h3>🎭 DemoForge Phishing Simulator</h3>
+      <p>Simulate phishing pages for awareness training.</p>
+      <button onclick="launchDemoForge()">Launch Demo</button>
+      <div id="demoOutput" class="output-box"></div>
+    </div>
+
+    <!-- Awareness Engine -->
+    <div class="tool-card">
+      <h3>🧘 Awareness Engine</h3>
+      <p>Map psychological traits to onboarding clarity.</p>
+      <button onclick="startAwareness()">Start Engine</button>
+      <div id="awarenessOutput" class="output-box"></div>
+    </div>
+  </section>
+
+  <script>
+    function runDNSRecon() {
+      const output = document.getElementById('dnsOutput');
+      output.style.display = 'block';
+      output.innerText = `[16:27] DNS Recon started...\n[16:28] Found 42 subdomains\n[16:29] MX, TXT, A records mapped successfully.`;
+    }
+
+    function launchDemoForge() {
+      const output = document.getElementById('demoOutput');
+      output.style.display = 'block';
+      output.innerText = `[16:27] DemoForge launched...\n[16:28] Fake login page deployed\n[16:29] Awareness module triggered.`;
+    }
+
+    function startAwareness() {
+      const output = document.getElementById('awarenessOutput');
+      output.style.display = 'block';
+      output.innerText = `[16:27] Awareness Engine booting...\n[16:28] TraitMap v2.1 loaded\n[16:29] Clarity module activated.`;
+    }
+  </script>
+
+</body>
+</html>
