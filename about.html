@@ -62,29 +62,70 @@
     </nav>
   </header>
 
-  <section class="about-section">
-    <!-- 👤 Profile Image -->
-    <img src="assets/images/me.jpg" alt="Hacker Professor" class="profile-pic" />
 
-    <h2>👨‍🏫 About Hacker Professor</h2>
-    <p>Himanshu Yadav<br>Hacker Professor</p>
-    <br>
-    <p>Ethical Hacker<br>Bug Bounty Hunter<br>Pentester<br>Coder</p>
+  <section id="about" class="about-section">
+  <div class="about-header">
+    <h2>🧠 About Hacker Professor</h2>
+    <img src="your-profile.jpg" alt="Himanshu Yadav" class="profile-pic">
+  </div>
 
-    <ul>
-      <li>🎯 Mission: Make hacking and wellness accessible</li>
-      <li>🧰 Tools: DNS Recon, DemoForge, phishing simulator</li>
-      <li>🧠 Philosophy: Psych + Yogic onboarding for clarity</li>
-    </ul>
+  <div class="about-content">
+    <p><span class="label">Name:</span> Himanshu Yadav</p>
+    <p><span class="label">Alias:</span> Hacker Professor 👨‍🏫</p>
+    <p><span class="label">Roles:</span> Ethical Hacker, Bug Bounty Hunter, Pentester, Coder</p>
+    <p><span class="label">Mission:</span> Empower ethical hackers and learners through modular tools, recon engines, and wellness systems.</p>
+    <p><span class="label">Philosophy:</span> Psych + Tech synergy for clarity and impact.</p>
+    <p><span class="label">Inspired by My Teacher:</span> Ankit Saxena, Vishal Yadav</p>
+    <p><span class="label">Favourite Persons:</span> Elon Musk, APJ Abdul Kalam, Sundar Pichai, Kevin Mitnick</p>
+    <p><span class="label">Connect:</span>
+      <a href="https://github.com/yourprofile" target="_blank">GitHub</a> |
+      <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a> |
+      <a href="https://twitter.com/yourprofile" target="_blank">Twitter</a> |
+      <a href="https://instagram.com/yourprofile" target="_blank">Instagram</a>
+    </p>
+  </div>
+</section>
 
-    <h3>🔗 Connect with Me</h3>
-    <ul class="social-links">
-      <li><a href="https://www.instagram.com/hacker_boy_sohail/?__pwa=1" target="_blank">📸 Instagram</a></li>
-      <li><a href="https://github.com/yourusername" target="_blank">💻 GitHub</a></li>
-      <li><a href="https://linkedin.com/in/yourusername" target="_blank">🔗 LinkedIn</a></li>
-      <li><a href="https://twitter.com/yourusername" target="_blank">🐦 Twitter</a></li>
-    </ul>
-  </section>
+<section id="about" class="console-section">
+  <h2>🧠 About Hacker Professor</h2>
+  <div class="console-output" id="animated-about">
+    <!-- Content will be injected via JS -->
+  </div>
+</section>
+
+<script>
+  const aboutLines = [
+    "👨‍🏫 I'm Himanshu Yadav — your Hacker Professor.",
+    "🎯 Mission: Empower ethical hackers and learners through modular tools, recon engines, and wellness systems.",
+    "💡 I blend behavioral science, automation, and education to simplify cybersecurity workflows.",
+    "💻 Tech Stack: Kali Linux, GitHub, Python, HTML/CSS/JS, C++, C — and pure hacker intuition.",
+    "🎓 Inspired by my teachers: Ankit Saxena, Vishal Yadav.",
+    "🌟 Favourite persons: Elon Musk, APJ Abdul Kalam, Sundar Pichai, Kevin Mitnick.",
+    "🚀 Why this console? To make learning fun, scalable, and accessible — with Hinglish swag and global impact.",
+    "🔗 Join the mission: Explore modules, contribute on GitHub, and spread awareness."
+  ];
+
+  let index = 0;
+  const container = document.getElementById("animated-about");
+
+  function typeLine(line, i = 0) {
+    if (i < line.length) {
+      container.innerHTML += line.charAt(i);
+      setTimeout(() => typeLine(line, i + 1), 50);
+    } else {
+      container.innerHTML += "<br>";
+      index++;
+      if (index < aboutLines.length) {
+        setTimeout(() => typeLine(aboutLines[index]), 500);
+      }
+    }
+  }
+
+  typeLine(aboutLines[index]);
+</script>
+
+
+
 
   <footer>
     <p>© 2025 Hacker Professor. Built with code, chai, and swag.</p>
